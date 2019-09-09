@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: forms
+#
+#  id          :integer          not null, primary key
+#  nombre      :string
+#  apellidos   :string
+#  cedula      :integer
+#  email       :string
+#  telefono    :integer
+#  institucion :string
+#  cargo       :string
+#  profesion   :string
+#  user_id     :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  apellidos: MyString
+  cedula: 1
+  email: MyString
+  telefono: 1
+  institucion: MyString
+  cargo: MyString
+  profesion: MyString
+  user_id: 1
+
+two:
+  nombre: MyString
+  apellidos: MyString
+  cedula: 1
+  email: MyString
+  telefono: 1
+  institucion: MyString
+  cargo: MyString
+  profesion: MyString
+  user_id: 1

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @form.nombre %>
+</p>
+
+<p>
+  <strong>Apellidos:</strong>
+  <%= @form.apellidos %>
+</p>
+
+<p>
+  <strong>Cedula:</strong>
+  <%= @form.cedula %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @form.email %>
+</p>
+
+<p>
+  <strong>Telefono:</strong>
+  <%= @form.telefono %>
+</p>
+
+<p>
+  <strong>Institucion:</strong>
+  <%= @form.institucion %>
+</p>
+
+<p>
+  <strong>Cargo:</strong>
+  <%= @form.cargo %>
+</p>
+
+<p>
+  <strong>Profesion:</strong>
+  <%= @form.profesion %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @form.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_form_path(@form) %> |
+<%= link_to 'Back', forms_path %>

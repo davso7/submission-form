@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Forms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Cedula</th>
+      <th>Email</th>
+      <th>Telefono</th>
+      <th>Institucion</th>
+      <th>Cargo</th>
+      <th>Profesion</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @forms.each do |form| %>
+      <tr>
+        <td><%= form.nombre %></td>
+        <td><%= form.apellidos %></td>
+        <td><%= form.cedula %></td>
+        <td><%= form.email %></td>
+        <td><%= form.telefono %></td>
+        <td><%= form.institucion %></td>
+        <td><%= form.cargo %></td>
+        <td><%= form.profesion %></td>
+        <td><%= form.user_id %></td>
+        <td><%= link_to 'Show', form %></td>
+        <td><%= link_to 'Edit', edit_form_path(form) %></td>
+        <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Form', new_form_path %>
