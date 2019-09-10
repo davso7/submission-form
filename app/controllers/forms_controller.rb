@@ -70,7 +70,7 @@ class FormsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_form
-      @form = Form.find_by(params[:id])
+      @form = Form.find_by(id: params[:id])
       redirect_to '/404.html' and return if @form.nil?
     end
 
