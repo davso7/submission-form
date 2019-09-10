@@ -19,4 +19,17 @@ class User < ApplicationRecord
       u.save
     end
   end
+
+  def self.send_invitations
+    users = User.all
+    users.each do |user|
+      if user.form.nil? #no tiene invitacion entonces se envia
+        UserMailer.with(user: user).welcome_email.deliver_now
+        puts "Se envio invitacion para [#{user.email}]"
+      else
+        puts "Invitacion para [#{user.email}] ya fue enviada"
+      end
+    end
+  end
+
 end

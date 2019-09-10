@@ -4,18 +4,32 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Enorabuena, <%= @user.email %></h1>
     <p>
-      Estas cordialmente invitado a participar en el evento
-      de la CIAP que se realizara el dia X a las AB:CDam en
-      ABCDXYZ
-      For favor ingresa al siguiente enlace y llena el formulario para inscribirte:
-      www.google.com
+      La Junta Directiva de la CIAP organiza el Seminario Archivístico,
+      el cual se llevará a cabo el 15 de noviembre del 2019
+      y cuyo tema será: "Revolución 4.0: La Transformación digital hacia la buena gobernanza".
+    </p>
+    <p>
+      En el desarrollo de esta actividad contaremos con la participación de importantes
+      expertos nacionales e internacionales, quienes aportarán sus conocimientos
+      y experiencias a los asistentes del Seminario, sobre el desarrollo digital en los
+      procesos de trabajo, con los diferentes instrumentos, principios y conocimientos de los
+      gestores de documentos y archivos, con el propósito de incorporar a los archivos en las
+      estrategias de transformación digital hacia la buena gobernanza.
+    </p>
 
-    </p>
     <p>
-      .
+      Para realizar la inscripción en línea puede acceder al siguiente enlace:
+      <%= link_to  'Click aqui', "#{@url}#{@user.auth_token}", target: '_blank' %>
     </p>
+
+    <p>
+      Si requiere una invitación personalizada al Seminario en un documento
+      original y firmado, le sugerimos solicitarlo de inmediato
+      en la dirección electrónica <%= mail_to "seminariociap2019@gmail.com" %>
+      la cual estará disponible para atender sus consultas.
+    </p>
+
     <p>Gracias por unirte, que tengas un gran día!</p>
 
   </body>

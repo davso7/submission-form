@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
 
   def welcome_email
     @user = params[:user]
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    @url  = 'https://ciap-submission-form.herokuapp.com/forms/new?auth_token='
+    mail(to: @user.email, subject: 'PRUEBA: Inscripciones Seminario CIAP 2019')
   end
 end
