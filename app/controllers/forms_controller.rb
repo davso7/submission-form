@@ -4,6 +4,7 @@ class FormsController < ApplicationController
   # GET /forms
   # GET /forms.json
   def index
+    redirect_to '/500.html' and return
     @forms = Form.all
   end
 
@@ -14,7 +15,7 @@ class FormsController < ApplicationController
 
   # GET /forms/new
   def new
-    redirect_to '/404.html' if not_allowed_user
+    redirect_to '/404.html' and return if params[:auth_token].nil? || not_allowed_user
     @form = Form.new
     @form.user_id = user.id
   end
@@ -28,11 +29,12 @@ class FormsController < ApplicationController
   def create
     @form = Form.new(form_params)
 
-    redirect_to '/404.html' if probably_hacking_id
+    # redirect_to '/404.html' and return if probably_hacking_id
 
     respond_to do |format|
       if @form.save
-        format.html { redirect_to @form, notice: 'Form was successfully created.' }
+        format.html { redirect_to @form, notice: 'Usuario inscrito correctamente.' }
+        #format.html { redirect_to "/forms/show/#{@form.id}", notice: 'Form was successfully created.' }
         format.json { render :show, status: :created, location: @form }
       else
         format.html { render :new }
@@ -68,7 +70,8 @@ class FormsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_form
-      @form = Form.find(params[:id])
+      @form = Form.find_by(params[:id])
+      redirect_to '/404.html' and return if @form.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -85,7 +88,7 @@ class FormsController < ApplicationController
     end
 
     def probably_hacking_id
-      u = User.find_by(params[:user_id])
+      u = User.find_by(params[:form][:user_id])
       !u.nil?
     end
 end
