@@ -33,6 +33,7 @@ class FormsController < ApplicationController
 
     respond_to do |format|
       if @form.save
+        UserMailer.with(form: @form).confirmation_email.deliver_now
         format.html { redirect_to @form, notice: 'Usuario inscrito correctamente.' }
         #format.html { redirect_to "/forms/show/#{@form.id}", notice: 'Form was successfully created.' }
         format.json { render :show, status: :created, location: @form }
