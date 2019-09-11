@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_054811) do
+ActiveRecord::Schema.define(version: 2019_09_11_145341) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "forms", force: :cascade do |t|
     t.string "nombre"
@@ -24,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_09_09_054811) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unidad"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,6 +35,8 @@ ActiveRecord::Schema.define(version: 2019_09_09_054811) do
     t.string "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "deadline"
+    t.boolean "invitation_sent", default: false
   end
 
 end

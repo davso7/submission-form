@@ -1,4 +1,4 @@
-<%= form_with(model: form, local: true) do |form| %>
+<%= form_with(id: 'suscription-form',model: form, local: true) do |form| %>
 
 
   <div class="field">
@@ -12,7 +12,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :cédula %><label class="required">*</label>
+    <%= form.label :cédula %><label class="required">*</label> <label>(Ejemplo: Si es 1-123-456 se debe digitar 101230456)</label>
     <%= form.number_field :cedula, placeholder: "105240345", required: true %>
   </div>
 
@@ -22,13 +22,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :telefono %><label class="required">*</label>
+    <%= form.label :teléfono %><label class="required">*</label>
     <%= form.number_field :telefono, placeholder: "75894512", required: true %>
   </div>
 
   <div class="field">
     <%= form.label :institución %> <label class="required">*</label>
     <%= form.text_field :institucion, placeholder: "Institución", required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unidad %>
+    <%= form.text_field :unidad, placeholder: "Unidad" %>
   </div>
 
   <div class="field">

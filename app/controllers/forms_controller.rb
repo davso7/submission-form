@@ -8,7 +8,6 @@ class FormsController < ApplicationController
     @forms = Form.all
   end
 
-
   # # GET /forms/1
   # # GET /forms/1.json
   # def show
@@ -78,11 +77,11 @@ class FormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params.require(:form).permit(:nombre, :apellidos, :cedula, :email, :telefono, :institucion, :cargo, :profesion, :user_id)
+      params.require(:form).permit(:nombre, :apellidos, :cedula, :email, :telefono, :institucion, :unidad, :cargo, :profesion, :user_id)
     end
 
     def not_allowed_user
-      user.nil? || user.form
+      user.nil? || user.form || user.invitation_expired?
     end
 
     def user
