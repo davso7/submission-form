@@ -8,7 +8,6 @@ class FormsController < ApplicationController
     @forms = Form.all
   end
 
-
   # # GET /forms/1
   # # GET /forms/1.json
   # def show
@@ -82,7 +81,7 @@ class FormsController < ApplicationController
     end
 
     def not_allowed_user
-      user.nil? || user.form
+      user.nil? || user.form || user.invitation_expired?
     end
 
     def user
