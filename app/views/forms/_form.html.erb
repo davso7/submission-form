@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :cédula %><label class="required">*</label> <label>(Ejemplo: Si es 1-123-456 se debe digitar 101230456)</label>
-    <%= form.number_field :cedula, placeholder: "105240345", required: true %>
+    <%= form.text_field :cedula, placeholder: "105240345", required: true %>
   </div>
 
   <div class="field">
@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :teléfono %><label class="required">*</label>
-    <%= form.number_field :telefono, placeholder: "75894512", required: true %>
+    <%= form.text_field :telefono, placeholder: "75894512", required: true %>
   </div>
 
   <div class="field">
