@@ -72,6 +72,9 @@ $(document).ready ->
       'form[institucion]':
         required: true
         minlength: 3
+      'form[unidad]':
+        required: true
+        minlength: 3
       'form[cargo]':
         required: true
         minlength: 3
@@ -99,6 +102,9 @@ $(document).ready ->
       'form[institucion]':
         required: 'La institución es requerida'
         minlength: 'La institución debe tener almenos 3 caracteres'
+      'form[unidad]':
+        required: 'La unidad es requerida'
+        minlength: 'La unidad debe tener almenos 3 caracteres'
       'form[cargo]':
         required: 'El cargo es requerido'
         minlength: 'El cargo debe tener almenos 3 caracteres'

@@ -26,8 +26,6 @@ development:
   reconnect: false
   database: ciap_development
   pool: 5
-  username: root
-  password:
 
 
 test:
@@ -36,8 +34,6 @@ test:
   reconnect: false
   database: ciap_test
   pool: 5
-  username: root
-  password:
 
 production:
   adapter: postgresql
@@ -45,5 +41,3 @@ production:
   reconnect: false
   database: ciap_production
   pool: 5
-  username: root
-  password:

@@ -20,7 +20,9 @@
 
     <p>
       Para realizar la inscripción en línea puede acceder al siguiente enlace:
-      <%= link_to  'Click aqui', "#{@url}#{@user.auth_token}", target: '_blank' %>
+      <%= link_to  'Click aqui', "#{@url}#{@user.auth_token}", target: '_blank' %>.
+      <label style="text-decoration: underline;">Tiempo límite
+      de inscripción: <%= @user.human_deadline %>. </label>
     </p>
 
     <p>
