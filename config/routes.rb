@@ -26,8 +26,10 @@
 Rails.application.routes.draw do
 
   root to: 'forms#new'
-  resources :users, only: [:index]
+  # resources :users, only: [:index]
   resources :forms, only: [:new, :show, :create] do
   end
+
+  get '/registered_users_with_forms/:id_auth', to: 'users#list_users_forms'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

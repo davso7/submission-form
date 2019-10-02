@@ -7,6 +7,33 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def list_users_forms
+
+    # TODO change this. This is provisional and super ugly
+    render json: { registered_users: [] } and return if params[:id_auth] != 'ASDF1234provisional'
+
+    @users = User.all
+    headers = ['Email de invitacion', 'Tiempo limite', 'Nombre', 'Apellidos', 'Cedula', 'Email',
+      'Telefono', 'Institucion', 'Cargo', 'Profesion', 'Unidad']
+    results = @users.includes(:form).order('forms.email').map do |user|
+      [
+        user.email,
+        user.deadline,
+        user.form.try(:nombre),
+        user.form.try(:apellidos),
+        user.form.try(:cedula),
+        user.form.try(:email),
+        user.form.try(:telefono),
+        user.form.try(:institucion),
+        user.form.try(:cargo),
+        user.form.try(:profesion),
+        user.form.try(:unidad)
+      ]
+    end
+
+    render json: { registered_users: headers + results }
+  end
+
   # GET /users/1
   # GET /users/1.json
   # def show
